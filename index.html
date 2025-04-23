@@ -22,11 +22,23 @@
         header {
             background: #FF9966;
             color: white;
-            padding: 12px 0;
+            padding: 12px 40px;
             text-align: center;
             font-size: 1.1rem;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             position: relative;
+        }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+        .title-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         .main-title {
             font-size: 1.3rem;
@@ -186,14 +198,13 @@
         
         /* 設定ボタン */
         .settings-btn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
             background: none;
             border: none;
             font-size: 1.5rem;
             cursor: pointer;
-            z-index: 1000;
+            color: white;
+            position: absolute;
+            right: 10px;
         }
         
         /* 設定メニュー */
@@ -256,10 +267,14 @@
 
     <!-- メイン画面 -->
     <header>
-        <div class="main-title">こども英語カード</div>
-        <div>タップしてね！</div>
-        <!-- オプション設定ボタン -->
-        <button id="settingsBtn" class="settings-btn">⚙️</button>
+        <div class="header-content">
+            <div class="title-container">
+                <div class="main-title">こども英語カード</div>
+                <div>タップしてね！</div>
+            </div>
+            <!-- オプション設定ボタン -->
+            <button id="settingsBtn" class="settings-btn">⚙️</button>
+        </div>
     </header>
     
     <div class="category-container" id="categoryContainer">
