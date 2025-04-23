@@ -27,6 +27,7 @@
             font-size: 1.1rem;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             position: relative;
+            flex-shrink: 0;
         }
         .header-content {
             display: flex;
@@ -44,13 +45,20 @@
             font-size: 1.3rem;
             margin-bottom: 5px;
         }
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
         .category-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
             grid-template-rows: 1fr 1fr;
-            flex: 1;
             gap: 8px;
             padding: 10px;
+            overflow-y: auto;
+            max-height: calc(100vh - 160px); /* ヘッダーとフッターの高さを考慮 */
         }
         .category-box {
             background: white;
@@ -62,6 +70,7 @@
             box-shadow: 0 3px 8px rgba(0,0,0,0.1);
             overflow: hidden;
             position: relative;
+            aspect-ratio: 1/1; /* 正方形を維持 */
         }
         .category-box:active {
             transform: scale(0.98);
@@ -86,10 +95,11 @@
             background: #FF9966;
             color: white;
             text-align: center;
-            padding: 8px 0;
+            padding: 10px 0;
             font-size: 0.8rem;
             display: flex;
             flex-direction: column;
+            flex-shrink: 0;
         }
         .footer-contact {
             margin-bottom: 5px;
@@ -130,7 +140,6 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 10px;
-            flex: 1;
             overflow-y: auto;
             max-height: calc(100vh - 120px);
             padding-bottom: 20px;
@@ -277,8 +286,10 @@
         </div>
     </header>
     
-    <div class="category-container" id="categoryContainer">
-        <!-- カテゴリボタンはJSで追加 -->
+    <div class="main-content">
+        <div class="category-container" id="categoryContainer">
+            <!-- カテゴリボタンはJSで追加 -->
+        </div>
     </div>
     
     <footer>
