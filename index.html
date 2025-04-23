@@ -70,6 +70,14 @@
             color: #888;
             margin-top: 3px;
         }
+
+.category-title {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    flex-grow: 1; /* 残りのスペースを全て占有 */
+}
+
         footer {
             background: #FF9966;
             color: white;
@@ -102,10 +110,11 @@
         }
         .word-header {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             margin-bottom: 15px;
-        }
+       position: relative;
+ }
         .back-button {
             background: #FF9966;
             color: white;
@@ -113,6 +122,8 @@
             padding: 5px 10px;
             border-radius: 15px;
             font-size: 0.9rem;
+position: absolute;
+left: 0;
         }
         .word-container {
             display: grid;
@@ -273,9 +284,14 @@
     
     <!-- 単語画面 -->
     <div class="word-screen" id="wordScreen">
-        <div class="word-header">
-            <button class="back-button" onclick="closeWordScreen()">← もどる</button>
-            <div id="currentCategoryName"></div>
+       
+<!-- 単語画面のヘッダー部分 -->
+<div class="word-header">
+    <button class="back-button" onclick="closeWordScreen()">← もどる</button>
+    <div class="category-title" id="currentCategoryName"></div>
+</div>
+          
+<div id="currentCategoryName"></div>
         </div>
         <div class="word-container" id="wordContainer">
             <!-- 単語カードはJSで追加 -->
