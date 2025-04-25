@@ -62,6 +62,7 @@
             box-shadow: 0 3px 8px rgba(0,0,0,0.1);
             overflow: hidden;
             position: relative;
+            padding: 10px;
         }
         .category-box:active {
             transform: scale(0.98);
@@ -69,7 +70,9 @@
         .category-icon {
             width: 60%;
             height: auto;
+            max-height: 100px;
             margin-bottom: 10px;
+            object-fit: contain;
         }
         .category-name {
             font-size: 1.2rem;
@@ -125,6 +128,7 @@
             padding: 5px 10px;
             border-radius: 15px;
             font-size: 0.9rem;
+            cursor: pointer;
         }
         .word-container {
             display: grid;
@@ -144,6 +148,7 @@
             align-items: center;
             justify-content: center;
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            cursor: pointer;
         }
         .word-card:active {
             background: #FFF0E0;
@@ -151,7 +156,9 @@
         .word-image {
             width: 80%;
             height: auto;
+            max-height: 120px;
             margin-bottom: 10px;
+            object-fit: contain;
         }
         .word-text {
             font-size: 1.3rem;
@@ -185,6 +192,7 @@
             width: 60%;
             max-width: 200px;
             margin-bottom: 20px;
+            object-fit: contain;
         }
         .next-button {
             background: #66AAFF;
@@ -194,6 +202,7 @@
             border-radius: 20px;
             font-size: 1rem;
             margin-top: 15px;
+            cursor: pointer;
         }
         
         /* 設定ボタン */
@@ -235,6 +244,7 @@
             border: none;
             border-radius: 5px;
             font-size: 0.9rem;
+            cursor: pointer;
         }
         
         /* カテゴリ色分け */
@@ -299,7 +309,7 @@
     
     <!-- 文章画面 -->
     <div class="sentence-screen" id="sentenceScreen">
-        <img class="sentence-image" id="sentenceImage" src="">
+        <img class="sentence-image" id="sentenceImage" src="" alt="">
         <div class="sentence-text" id="sentenceText"></div>
         <button class="next-button" onclick="showNextSentence()">つぎへ</button>
     </div>
@@ -326,108 +336,108 @@
                 words: [
                     { text: "Dog", image: "https://cdn-icons-png.flaticon.com/512/616/616408.png", sentences: ["It's a dog.", "I like dogs.", "The dog is cute."] },
                     { text: "Cat", image: "https://cdn-icons-png.flaticon.com/512/616/616430.png", sentences: ["It's a cat.", "I like cats.", "The cat is soft."] },
-                    { text: "Lion", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5RGa8q6zI4t_DPjfCrsenMZQYfUTmJXbhhImGfHzyEvvJt81fG-4kknAo&s=10", sentences: ["It's a lion.", "The lion is big.", "The lion roars."] },
+                    { text: "Lion", image: "https://cdn-icons-png.flaticon.com/512/616/616412.png", sentences: ["It's a lion.", "The lion is big.", "The lion roars."] },
                     { text: "Bird", image: "https://cdn-icons-png.flaticon.com/512/616/616443.png", sentences: ["It's a bird.", "The bird can fly.", "I hear birds sing."] },
-                    { text: "Fish", image: "https://illust.startoo.co/wp-content/uploads/2024/11/1.kawaii-sakana.png", sentences: ["It's a fish.", "Fish swim in water.", "I see colorful fish."] },
-                    { text: "Elephant", image: "https://illustkun.com/wp-content/uploads/illustkun-03855-elephant.png", sentences: ["It's an elephant.", "The elephant is huge.", "The elephant has a trunk."] },
-                    { text: "Giraffe", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxZJ4YhRWvZrYxDPMlmrLvzM08iBJ-V3U2qZsvw8GTxOdaEP_ORu_BAeNw&s=10", sentences: ["It's a giraffe.", "The giraffe is tall.", "The giraffe has a long neck."] },
-                    { text: "Monkey", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXojK1mc3aD6p7wHY9LEL5N111N4Cu7ZQON3WIRxspJgJRyzsJiU3fRd4&s=10", sentences: ["It's a monkey.", "The monkey climbs trees.", "The monkey is funny."] },
-                    { text: "Rabbit", image: "https://www.illust-box.jp/db_img/sozai/00017/171119/watermark.jpg", sentences: ["It's a rabbit.", "The rabbit hops.", "The rabbit is fluffy."] },
-                    { text: "Bear", image: "https://illust8.com/wp-content/uploads/2019/09/animal_bear_face_4619.png", sentences: ["It's a bear.", "The bear is strong.", "Bears like honey."] },
-                    { text: "Panda", image: "https://illust8.com/wp-content/uploads/2018/10/animal_panda_illust_1664.png", sentences: ["It's a panda.", "Pandas eat bamboo.", "The panda is black and white."] },
-                    { text: "Penguin", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToXX6cxBmP30Zi_NgjYe15n9L0aSCJrAbRnw&usqp=CAU", sentences: ["It's a penguin.", "Penguins can swim.", "Penguins live in cold places."] },
-                    { text: "Tiger", image: "https://japaclip.com/files/tiger-500x439.png", sentences: ["It's a tiger.", "The tiger has stripes.", "Tigers are fast."] },
-                    { text: "Zebra", image: "https://illustkun.com/wp-content/uploads/illustkun-03853-zebra.png", sentences: ["It's a zebra.", "Zebras have stripes.", "Zebras run fast."] },
-                    { text: "Horse", image: "https://frame-illust.com/fi/wp-content/uploads/2017/03/9547.png", sentences: ["It's a horse.", "Horses can run fast.", "I want to ride a horse."] },
-                    { text: "Cow", image: "https://frame-illust.com/fi/wp-content/uploads/2017/03/9512.png", sentences: ["It's a cow.", "Cows give us milk.", "The cow says moo."] },
-                    { text: "Pig", image: "https://piclike.net/wp-content/uploads/2022/06/buta.png", sentences: ["It's a pig.", "Pigs like mud.", "The pig says oink."] },
-                    { text: "Sheep", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR99Ie6BhXaI7kL6DcpQfo4DUeZma1Jv49pJQ&usqp=CAU", sentences: ["It's a sheep.", "Sheep give us wool.", "The sheep says baa."] },
-                    { text: "Duck", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQc5zT4hRm798n0GAOzzIMO6een-vao-_ZdNA&usqp=CAU", sentences: ["It's a duck.", "Ducks can swim.", "The duck says quack."] },
-                    { text: "Owl", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-qL3xasLSk_x8QDdODFGvMhlm380pyRu4XA&usqp=CAU", sentences: ["It's an owl.", "Owls are wise.", "The owl says hoot."] }
+                    { text: "Fish", image: "https://cdn-icons-png.flaticon.com/512/616/616441.png", sentences: ["It's a fish.", "Fish swim in water.", "I see colorful fish."] },
+                    { text: "Elephant", image: "https://cdn-icons-png.flaticon.com/512/616/616418.png", sentences: ["It's an elephant.", "The elephant is huge.", "The elephant has a trunk."] },
+                    { text: "Giraffe", image: "https://cdn-icons-png.flaticon.com/512/616/616419.png", sentences: ["It's a giraffe.", "The giraffe is tall.", "The giraffe has a long neck."] },
+                    { text: "Monkey", image: "https://cdn-icons-png.flaticon.com/512/616/616420.png", sentences: ["It's a monkey.", "The monkey climbs trees.", "The monkey is funny."] },
+                    { text: "Rabbit", image: "https://cdn-icons-png.flaticon.com/512/616/616422.png", sentences: ["It's a rabbit.", "The rabbit hops.", "The rabbit is fluffy."] },
+                    { text: "Bear", image: "https://cdn-icons-png.flaticon.com/512/616/616417.png", sentences: ["It's a bear.", "The bear is strong.", "Bears like honey."] },
+                    { text: "Panda", image: "https://cdn-icons-png.flaticon.com/512/616/616421.png", sentences: ["It's a panda.", "Pandas eat bamboo.", "The panda is black and white."] },
+                    { text: "Penguin", image: "https://cdn-icons-png.flaticon.com/512/616/616423.png", sentences: ["It's a penguin.", "Penguins can swim.", "Penguins live in cold places."] },
+                    { text: "Tiger", image: "https://cdn-icons-png.flaticon.com/512/616/616424.png", sentences: ["It's a tiger.", "The tiger has stripes.", "Tigers are fast."] },
+                    { text: "Zebra", image: "https://cdn-icons-png.flaticon.com/512/616/616425.png", sentences: ["It's a zebra.", "Zebras have stripes.", "Zebras run fast."] },
+                    { text: "Horse", image: "https://cdn-icons-png.flaticon.com/512/616/616427.png", sentences: ["It's a horse.", "Horses can run fast.", "I want to ride a horse."] },
+                    { text: "Cow", image: "https://cdn-icons-png.flaticon.com/512/616/616428.png", sentences: ["It's a cow.", "Cows give us milk.", "The cow says moo."] },
+                    { text: "Pig", image: "https://cdn-icons-png.flaticon.com/512/616/616429.png", sentences: ["It's a pig.", "Pigs like mud.", "The pig says oink."] },
+                    { text: "Sheep", image: "https://cdn-icons-png.flaticon.com/512/616/616431.png", sentences: ["It's a sheep.", "Sheep give us wool.", "The sheep says baa."] },
+                    { text: "Duck", image: "https://cdn-icons-png.flaticon.com/512/616/616432.png", sentences: ["It's a duck.", "Ducks can swim.", "The duck says quack."] },
+                    { text: "Owl", image: "https://cdn-icons-png.flaticon.com/512/616/616433.png", sentences: ["It's an owl.", "Owls are wise.", "The owl says hoot."] }
                 ]
             },
             {
                 id: "fruits",
                 name: "くだもの・やさい",
                 nameEn: "Fruits & Veggies",
-                icon: "https://illust8.com/wp-content/uploads/2018/06/fruit_apple_illust_150.png",
+                icon: "https://cdn-icons-png.flaticon.com/512/3082/3082383.png",
                 words: [
-                    { text: "Apple", image: "https://illust8.com/wp-content/uploads/2018/06/fruit_apple_illust_150.png", sentences: ["It's an apple.", "I eat apples.", "Apples are crunchy."] },
-                    { text: "Banana", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfY4xqGXYiU7qcvE2v2vdA5DiTOAVRzIiXPSrPX9yCSpoECgi62N7wEjI&s=10", sentences: ["It's a banana.", "I eat bananas.", "Bananas are sweet."] },
-                    { text: "Orange", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0zti25R_ESIZ7eXk19uz9mRimRYfAzHXZZi26Q_ZVpLjijDuOt_Nxw4Ou&s=10", sentences: ["It's an orange.", "I eat oranges.", "Oranges are juicy."] },
-                    { text: "Grape", image: "https://illust8.com/wp-content/uploads/2018/06/fruit_grape_illust_108.png", sentences: ["It's a grape.", "I eat grapes.", "Grapes are small."] },
-                    { text: "Strawberry", image: "https://illustkun.com/wp-content/uploads/2018/06/illustkun-00453-strawberry.png", sentences: ["It's a strawberry.", "I eat strawberries.", "Strawberries are red."] },
-                    { text: "Carrot", image: "https://illust-town.com/wp-content/uploads/carrots.png", sentences: ["It's a carrot.", "I eat carrots.", "Carrots are orange."] },
-                    { text: "Tomato", image: "https://illust8.com/wp-content/uploads/2018/06/vegetable_tomato_illust_184.png", sentences: ["It's a tomato.", "I eat tomatoes.", "Tomatoes are red."] },
-                    { text: "Onion", image: "https://tsukatte.com/wp-content/uploads/2019/02/onion.png", sentences: ["It's an onion.", "Onions make me cry.", "Onions are round."] },
-                    { text: "Potato", image: "https://illustkun.com/wp-content/uploads/illustkun-03724-potato.png", sentences: ["It's a potato.", "I eat potatoes.", "Potatoes are brown."] },
-                    { text: "Lettuce", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRm6bJxYPQ92I7KnQ5OTebkbzdAbTFiHOv3Cg&usqp=CAU", sentences: ["It's lettuce.", "I eat lettuce.", "Lettuce is green."] },
-                    { text: "Pineapple", image: "https://tsukatte.com/wp-content/uploads/2019/08/pineapple.png", sentences: ["It's a pineapple.", "I eat pineapple.", "Pineapple is sweet."] },
-                    { text: "Watermelon", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiS7UlNUNWJcw1qzU5hNJjUL8QFcX2vk1AYA&usqp=CAU", sentences: ["It's a watermelon.", "I eat watermelon.", "Watermelon is juicy."] },
-                    { text: "Cherry", image: "https://photo-step.co.jp/illustkobo/wp-content/uploads/2019/06/0144_R_450.png", sentences: ["It's a cherry.", "I eat cherries.", "Cherries are small."] },
-                    { text: "Peach", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-eecH_2MCrLuFc9juze6mYp2XHrIE5cYM2w&usqp=CAU", sentences: ["It's a peach.", "I eat peaches.", "Peaches are soft."] },
-                    { text: "Pear", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0GS_YP3wZBU-Y6vJFp0DH2p4jU6IGJe2SDZLT0BOwC-5h2WjnwVjzYX2B&s=10", sentences: ["It's a pear.", "I eat pears.", "Pears are sweet."] },
-                    { text: "Cucumber", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxXnxxG3gpjJ8t--bzDfpvpwBV2Hi8oi5jS9zkV30mMuNAl_TMBn1MeQ7u&s=10", sentences: ["It's a cucumber.", "I eat cucumbers.", "Cucumbers are long."] },
-                    { text: "Broccoli", image: "https://illustkun.com/wp-content/uploads/illustkun-04161-broccoli.png", sentences: ["It's broccoli.", "I eat broccoli.", "Broccoli is green."] },
-                    { text: "Corn", image: "https://tsukatte.com/wp-content/uploads/2019/07/corn.png", sentences: ["It's corn.", "I eat corn.", "Corn is yellow."] },
-                    { text: "Eggplant", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1F5RdSl2wtxhQx20AB7homkkXQs8-FkQdoZhXFuXDVi79IhVkD3-aDNU&s=10", sentences: ["It's an eggplant.", "I eat eggplant.", "Eggplant is purple."] },
-                    { text: "Pumpkin", image: "https://cdn-ak.f.st-hatena.com/images/fotolife/N/Newdonut/20221204/20221204073928.png", sentences: ["It's a pumpkin.", "I eat pumpkin.", "Pumpkins are orange."] }
+                    { text: "Apple", image: "https://cdn-icons-png.flaticon.com/512/3082/3082383.png", sentences: ["It's an apple.", "I eat apples.", "Apples are crunchy."] },
+                    { text: "Banana", image: "https://cdn-icons-png.flaticon.com/512/3082/3082384.png", sentences: ["It's a banana.", "I eat bananas.", "Bananas are sweet."] },
+                    { text: "Orange", image: "https://cdn-icons-png.flaticon.com/512/3082/3082385.png", sentences: ["It's an orange.", "I eat oranges.", "Oranges are juicy."] },
+                    { text: "Grape", image: "https://cdn-icons-png.flaticon.com/512/3082/3082386.png", sentences: ["It's a grape.", "I eat grapes.", "Grapes are small."] },
+                    { text: "Strawberry", image: "https://cdn-icons-png.flaticon.com/512/3082/3082387.png", sentences: ["It's a strawberry.", "I eat strawberries.", "Strawberries are red."] },
+                    { text: "Carrot", image: "https://cdn-icons-png.flaticon.com/512/3082/3082388.png", sentences: ["It's a carrot.", "I eat carrots.", "Carrots are orange."] },
+                    { text: "Tomato", image: "https://cdn-icons-png.flaticon.com/512/3082/3082389.png", sentences: ["It's a tomato.", "I eat tomatoes.", "Tomatoes are red."] },
+                    { text: "Onion", image: "https://cdn-icons-png.flaticon.com/512/3082/3082390.png", sentences: ["It's an onion.", "Onions make me cry.", "Onions are round."] },
+                    { text: "Potato", image: "https://cdn-icons-png.flaticon.com/512/3082/3082391.png", sentences: ["It's a potato.", "I eat potatoes.", "Potatoes are brown."] },
+                    { text: "Lettuce", image: "https://cdn-icons-png.flaticon.com/512/3082/3082392.png", sentences: ["It's lettuce.", "I eat lettuce.", "Lettuce is green."] },
+                    { text: "Pineapple", image: "https://cdn-icons-png.flaticon.com/512/3082/3082393.png", sentences: ["It's a pineapple.", "I eat pineapple.", "Pineapple is sweet."] },
+                    { text: "Watermelon", image: "https://cdn-icons-png.flaticon.com/512/3082/3082394.png", sentences: ["It's a watermelon.", "I eat watermelon.", "Watermelon is juicy."] },
+                    { text: "Cherry", image: "https://cdn-icons-png.flaticon.com/512/3082/3082395.png", sentences: ["It's a cherry.", "I eat cherries.", "Cherries are small."] },
+                    { text: "Peach", image: "https://cdn-icons-png.flaticon.com/512/3082/3082396.png", sentences: ["It's a peach.", "I eat peaches.", "Peaches are soft."] },
+                    { text: "Pear", image: "https://cdn-icons-png.flaticon.com/512/3082/3082397.png", sentences: ["It's a pear.", "I eat pears.", "Pears are sweet."] },
+                    { text: "Cucumber", image: "https://cdn-icons-png.flaticon.com/512/3082/3082398.png", sentences: ["It's a cucumber.", "I eat cucumbers.", "Cucumbers are long."] },
+                    { text: "Broccoli", image: "https://cdn-icons-png.flaticon.com/512/3082/3082399.png", sentences: ["It's broccoli.", "I eat broccoli.", "Broccoli is green."] },
+                    { text: "Corn", image: "https://cdn-icons-png.flaticon.com/512/3082/3082400.png", sentences: ["It's corn.", "I eat corn.", "Corn is yellow."] },
+                    { text: "Eggplant", image: "https://cdn-icons-png.flaticon.com/512/3082/3082401.png", sentences: ["It's an eggplant.", "I eat eggplant.", "Eggplant is purple."] },
+                    { text: "Pumpkin", image: "https://cdn-icons-png.flaticon.com/512/3082/3082402.png", sentences: ["It's a pumpkin.", "I eat pumpkin.", "Pumpkins are orange."] }
                 ]
             },
             {
                 id: "family",
                 name: "かぞく・ひと",
                 nameEn: "Family & People",
-                icon: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhWQuhi7Tbo-nakLW2EUXE6Gfqmd4l89cY5YVXEcQlM8fJA5vipnn0r7_xfH6YnKkIv7zEV1gNZJQlP-BnxqasmDrDmIZfGzSu6XDSgKikejIxUFy8_ZiK1Je6Dt2aNR3eCwKoovFnwYA0/s800/obasan01_laugh.png",
+                icon: "https://cdn-icons-png.flaticon.com/512/3082/3082403.png",
                 words: [
-                    { text: "Mom", image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhWQuhi7Tbo-nakLW2EUXE6Gfqmd4l89cY5YVXEcQlM8fJA5vipnn0r7_xfH6YnKkIv7zEV1gNZJQlP-BnxqasmDrDmIZfGzSu6XDSgKikejIxUFy8_ZiK1Je6Dt2aNR3eCwKoovFnwYA0/s800/obasan01_laugh.png", isPerson: true, sentences: ["This is mom.", "I love mom.", "Mom is kind."] },
-                    { text: "Dad", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSqi-JI1ptUP57fgnLlkWljbI75y5Am4mSECVbIaZZnKT_kc9M-Sqj-y8&s=10", isPerson: true, sentences: ["This is dad.", "I love dad.", "Dad is strong."] },
-                    { text: "Baby", image: "https://illustrain.com/wp-content/uploads/2016/02/illustrain10-akatyan02.png", isPerson: true, sentences: ["This is a baby.", "The baby is small.", "Babies are cute."] },
-                    { text: "Grandma", image: "https://illust8.com/wp-content/uploads/2021/05/smile_grandmother_13516.png", isPerson: true, sentences: ["I love grandma.", "Grandma is sweet."] },
-                    { text: "Grandpa", image: "https://illust8.com/wp-content/uploads/2021/05/smile_grandfather_13515.png", isPerson: true, sentences: ["This is grandpa.", "I love grandpa.", "Grandpa is wise."] },
-                    { text: "Teacher", image: "https://illust8.com/wp-content/uploads/2018/12/school_teacher_female_illust_2435.png", isPerson: true, sentences: ["This is a teacher.", "Teachers help us learn.", "I like my teacher."] },
-                    { text: "Doctor", image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjkRI-l17wNGPBJnqGDkc__krbVHcPmxmPlYePohQzpfxD-E2NHOtt2byRfWPMu1wgL8qAyz-9rionxI9fp8YauFb2yLiVvuYnWzTpNAD8LQUy3bbQf9cVeWL9r2AjRFWAw-fC1Xw5AXVY/s800/doctor.png", isPerson: true, sentences: ["This is a doctor.", "Doctors help us.", "Doctors are smart."] },
-                    { text: "Friend", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRveZnzaREQgjfEd6jfOzvhIcnGbxfJDUkq9r9_9NBcFXZlJWZQ2-IE2wQ&s=10", isPerson: true, sentences: ["This is my friend.", "I play with friends.", "Friends are nice."] },
-                    { text: "Boy", image: "https://iconbu.com/wp-content/uploads/2023/06/%E3%82%B7%E3%83%B3%E3%83%97%E3%83%AB%E3%81%AA%E7%94%B7%E3%81%AE%E5%AD%90.png", isPerson: true, sentences: ["This is a boy.", "Boys play outside.", "The boy is happy."] },
-                    { text: "Girl", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSr39CYgWguDVh2DLfbezvDi63opEaMxRbrO9sPKaIVMk6wuQrqSq31zRUf&s=10", isPerson: true, sentences: ["This is a girl.", "Girls like to play.", "The girl is smiling."] },
-                    { text: "Brother", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRVHP83MBlVHXRbDeg5A6rF7s4uz4keUDZS8EX_iLR3xhNzLfmUQuek_Mgj&s=10", isPerson: true, sentences: ["This is my brother.", "I play with my brother.", "Brothers are fun."] },
-                    { text: "Sister", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR91AnOm62ua3-n_ZO3KvKIpz2TjpQdeptdmmSvSVXPKYeC5mX5VKAJRmI&s=10", isPerson: true, sentences: ["This is my sister.", "I play with my sister.", "Sisters are kind."] },
-                    { text: "Uncle", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQA5EUDvzmhtohEI9W61iLFd-L8c1W193gIDw&s", isPerson: true, sentences: ["This is my uncle.", "Uncles are fun.", "I like my uncle."] },
-                    { text: "Aunt", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRfSCX7yeVhdGLUXoAP57Q7BkcEfOqMXs90SgbAoYAf5CfzCzuuPJmwtgg&s=10", isPerson: true, sentences: ["This is my aunt.", "Aunts are nice.", "I like my aunt."] },
-                    { text: "Police", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSW7HWaeHTIDb6SiQGZwzeoFoZ2XIy9-Ytl7Im8DB2S_XFwKx7U3HKwt8Dj&s=10", isPerson: true, sentences: ["This is a police officer.", "Police help people.", "Police keep us safe."] },
-                    { text: "Chef", image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgB68ppVgxqGC7bGvfao6ixVvW0J5zTV3of7JjId7CjGBE8gjyYpOZH-lJrnDvNZeJC5XNEhBD7fcvGkHNRKwCkz9CiWF-E4UUgQf2PJ2vNUC2B-ZizIGEQ_mbhRr-18mhPAA_rxGp8Hanc/s800/cooking_chef.png", isPerson: true, sentences: ["This is a chef.", "Chefs cook food.", "Chefs make tasty food."] },
-                    { text: "Farmer", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiJ75tvniJPk3froAdjzT9qMMO8qooNmsTRTfoJvNP3nWv82GyANfD8lH7&s=10", isPerson: true, sentences: ["This is a farmer.", "Farmers grow food.", "Farmers work hard."] },
-                    { text: "Nurse", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmHpNBArQLET3Uirp9gVchDIOY4XSchd6_pg&s", isPerson: true, sentences: ["This is a nurse.", "Nurses help doctors.", "Nurses are kind."] },
-                    { text: "Firefighter", image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjMAysvDvtThpd_DEmrgSqCnjVOhVaOWH2O7BntQCOSGGIws15clH6-Dw&s=10", isPerson: true, sentences: ["This is a firefighter.", "Firefighters put out fires.", "Firefighters are brave."] },
-                    { text: "Pilot", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRwNCwnovARQhQllQSrXXRgc7w47HbWTIsjFg&usqp=CAU", isPerson: true, sentences: ["This is a pilot.", "Pilots fly planes.", "Pilots travel far."] }
+                    { text: "Mom", image: "https://cdn-icons-png.flaticon.com/512/3082/3082403.png", isPerson: true, sentences: ["This is mom.", "I love mom.", "Mom is kind."] },
+                    { text: "Dad", image: "https://cdn-icons-png.flaticon.com/512/3082/3082404.png", isPerson: true, sentences: ["This is dad.", "I love dad.", "Dad is strong."] },
+                    { text: "Baby", image: "https://cdn-icons-png.flaticon.com/512/3082/3082405.png", isPerson: true, sentences: ["This is a baby.", "The baby is small.", "Babies are cute."] },
+                    { text: "Grandma", image: "https://cdn-icons-png.flaticon.com/512/3082/3082406.png", isPerson: true, sentences: ["I love grandma.", "Grandma is sweet."] },
+                    { text: "Grandpa", image: "https://cdn-icons-png.flaticon.com/512/3082/3082407.png", isPerson: true, sentences: ["This is grandpa.", "I love grandpa.", "Grandpa is wise."] },
+                    { text: "Teacher", image: "https://cdn-icons-png.flaticon.com/512/3082/3082408.png", isPerson: true, sentences: ["This is a teacher.", "Teachers help us learn.", "I like my teacher."] },
+                    { text: "Doctor", image: "https://cdn-icons-png.flaticon.com/512/3082/3082409.png", isPerson: true, sentences: ["This is a doctor.", "Doctors help us.", "Doctors are smart."] },
+                    { text: "Friend", image: "https://cdn-icons-png.flaticon.com/512/3082/3082410.png", isPerson: true, sentences: ["This is my friend.", "I play with friends.", "Friends are nice."] },
+                    { text: "Boy", image: "https://cdn-icons-png.flaticon.com/512/3082/3082411.png", isPerson: true, sentences: ["This is a boy.", "Boys play outside.", "The boy is happy."] },
+                    { text: "Girl", image: "https://cdn-icons-png.flaticon.com/512/3082/3082412.png", isPerson: true, sentences: ["This is a girl.", "Girls like to play.", "The girl is smiling."] },
+                    { text: "Brother", image: "https://cdn-icons-png.flaticon.com/512/3082/3082413.png", isPerson: true, sentences: ["This is my brother.", "I play with my brother.", "Brothers are fun."] },
+                    { text: "Sister", image: "https://cdn-icons-png.flaticon.com/512/3082/3082414.png", isPerson: true, sentences: ["This is my sister.", "I play with my sister.", "Sisters are kind."] },
+                    { text: "Uncle", image: "https://cdn-icons-png.flaticon.com/512/3082/3082415.png", isPerson: true, sentences: ["This is my uncle.", "Uncles are fun.", "I like my uncle."] },
+                    { text: "Aunt", image: "https://cdn-icons-png.flaticon.com/512/3082/3082416.png", isPerson: true, sentences: ["This is my aunt.", "Aunts are nice.", "I like my aunt."] },
+                    { text: "Police", image: "https://cdn-icons-png.flaticon.com/512/3082/3082417.png", isPerson: true, sentences: ["This is a police officer.", "Police help people.", "Police keep us safe."] },
+                    { text: "Chef", image: "https://cdn-icons-png.flaticon.com/512/3082/3082418.png", isPerson: true, sentences: ["This is a chef.", "Chefs cook food.", "Chefs make tasty food."] },
+                    { text: "Farmer", image: "https://cdn-icons-png.flaticon.com/512/3082/3082419.png", isPerson: true, sentences: ["This is a farmer.", "Farmers grow food.", "Farmers work hard."] },
+                    { text: "Nurse", image: "https://cdn-icons-png.flaticon.com/512/3082/3082420.png", isPerson: true, sentences: ["This is a nurse.", "Nurses help doctors.", "Nurses are kind."] },
+                    { text: "Firefighter", image: "https://cdn-icons-png.flaticon.com/512/3082/3082421.png", isPerson: true, sentences: ["This is a firefighter.", "Firefighters put out fires.", "Firefighters are brave."] },
+                    { text: "Pilot", image: "https://cdn-icons-png.flaticon.com/512/3082/3082422.png", isPerson: true, sentences: ["This is a pilot.", "Pilots fly planes.", "Pilots travel far."] }
                 ]
             },
             {
                 id: "others",
                 name: "そのた",
                 nameEn: "Other Things",
-                icon: "https://cdn-icons-png.flaticon.com/512/3082/3082383.png",
+                icon: "https://cdn-icons-png.flaticon.com/512/3082/3082423.png",
                 words: [
-                    { text: "Car", image: "https://cdn-icons-png.flaticon.com/512/3082/3082383.png", sentences: ["It's a car.", "I have a toy car.", "Cars go fast."] },
-                    { text: "Ball", image: "https://cdn-icons-png.flaticon.com/512/3082/3082386.png", sentences: ["It's a ball.", "I have a ball.", "I play with balls."] },
-                    { text: "Book", image: "https://cdn-icons-png.flaticon.com/512/3082/3082393.png", sentences: ["It's a book.", "I have many books.", "I like to read books."] },
-                    { text: "House", image: "https://cdn-icons-png.flaticon.com/512/3082/3082409.png", sentences: ["It's a house.", "I live in a house.", "Houses keep us safe."] },
-                    { text: "Tree", image: "https://cdn-icons-png.flaticon.com/512/3082/3082415.png", sentences: ["It's a tree.", "Trees give us oxygen.", "I like big trees."] },
-                    { text: "Flower", image: "https://cdn-icons-png.flaticon.com/512/3082/3082416.png", sentences: ["It's a flower.", "Flowers are pretty.", "I like colorful flowers."] },
-                    { text: "Bicycle", image: "https://cdn-icons-png.flaticon.com/512/3082/3082424.png", sentences: ["It's a bicycle.", "I have a bicycle.", "I ride my bicycle."] },
-                    { text: "Clock", image: "https://cdn-icons-png.flaticon.com/512/3082/3082432.png", sentences: ["It's a clock.", "Clocks tell time.", "I can read a clock."] },
-                    { text: "Chair", image: "https://cdn-icons-png.flaticon.com/512/3082/3082438.png", sentences: ["It's a chair.", "I sit on a chair.", "Chairs are useful."] },
-                    { text: "Bed", image: "https://cdn-icons-png.flaticon.com/512/3082/3082440.png", sentences: ["It's a bed.", "I sleep in a bed.", "Beds are comfortable."] },
-                    { text: "Table", image: "https://cdn-icons-png.flaticon.com/512/3082/3082439.png", sentences: ["It's a table.", "I eat at the table.", "Tables are useful."] },
-                    { text: "Cup", image: "https://cdn-icons-png.flaticon.com/512/3082/3082441.png", sentences: ["It's a cup.", "I drink from a cup.", "Cups hold drinks."] },
-                    { text: "Phone", image: "https://cdn-icons-png.flaticon.com/512/3082/3082431.png", sentences: ["It's a phone.", "Phones help us talk.", "I can call with a phone."] },
-                    { text: "Computer", image: "https://cdn-icons-png.flaticon.com/512/3082/3082430.png", sentences: ["It's a computer.", "Computers are smart.", "I learn with computers."] },
-                    { text: "Toy", image: "https://cdn-icons-png.flaticon.com/512/3082/3082387.png", sentences: ["It's a toy.", "I have many toys.", "I like to play with toys."] },
-                    { text: "Doll", image: "https://cdn-icons-png.flaticon.com/512/3082/3082388.png", sentences: ["It's a doll.", "I have a doll.", "Dolls are fun."] },
-                    { text: "Block", image: "https://cdn-icons-png.flaticon.com/512/3082/3082389.png", sentences: ["It's a block.", "I play with blocks.", "I build with blocks."] },
-                    { text: "Crayon", image: "https://cdn-icons-png.flaticon.com/512/3082/3082390.png", sentences: ["It's a crayon.", "I draw with crayons.", "Crayons are colorful."] },
-                    { text: "Pencil", image: "https://cdn-icons-png.flaticon.com/512/3082/3082391.png", sentences: ["It's a pencil.", "I write with pencils.", "Pencils are useful."] },
-                    { text: "Bag", image: "https://cdn-icons-png.flaticon.com/512/3082/3082392.png", sentences: ["It's a bag.", "I have a school bag.", "Bags hold things."] }
+                    { text: "Car", image: "https://cdn-icons-png.flaticon.com/512/3082/3082423.png", sentences: ["It's a car.", "I have a toy car.", "Cars go fast."] },
+                    { text: "Ball", image: "https://cdn-icons-png.flaticon.com/512/3082/3082424.png", sentences: ["It's a ball.", "I have a ball.", "I play with balls."] },
+                    { text: "Book", image: "https://cdn-icons-png.flaticon.com/512/3082/3082425.png", sentences: ["It's a book.", "I have many books.", "I like to read books."] },
+                    { text: "House", image: "https://cdn-icons-png.flaticon.com/512/3082/3082426.png", sentences: ["It's a house.", "I live in a house.", "Houses keep us safe."] },
+                    { text: "Tree", image: "https://cdn-icons-png.flaticon.com/512/3082/3082427.png", sentences: ["It's a tree.", "Trees give us oxygen.", "I like big trees."] },
+                    { text: "Flower", image: "https://cdn-icons-png.flaticon.com/512/3082/3082428.png", sentences: ["It's a flower.", "Flowers are pretty.", "I like colorful flowers."] },
+                    { text: "Bicycle", image: "https://cdn-icons-png.flaticon.com/512/3082/3082429.png", sentences: ["It's a bicycle.", "I have a bicycle.", "I ride my bicycle."] },
+                    { text: "Clock", image: "https://cdn-icons-png.flaticon.com/512/3082/3082430.png", sentences: ["It's a clock.", "Clocks tell time.", "I can read a clock."] },
+                    { text: "Chair", image: "https://cdn-icons-png.flaticon.com/512/3082/3082431.png", sentences: ["It's a chair.", "I sit on a chair.", "Chairs are useful."] },
+                    { text: "Bed", image: "https://cdn-icons-png.flaticon.com/512/3082/3082432.png", sentences: ["It's a bed.", "I sleep in a bed.", "Beds are comfortable."] },
+                    { text: "Table", image: "https://cdn-icons-png.flaticon.com/512/3082/3082433.png", sentences: ["It's a table.", "I eat at the table.", "Tables are useful."] },
+                    { text: "Cup", image: "https://cdn-icons-png.flaticon.com/512/3082/3082434.png", sentences: ["It's a cup.", "I drink from a cup.", "Cups hold drinks."] },
+                    { text: "Phone", image: "https://cdn-icons-png.flaticon.com/512/3082/3082435.png", sentences: ["It's a phone.", "Phones help us talk.", "I can call with a phone."] },
+                    { text: "Computer", image: "https://cdn-icons-png.flaticon.com/512/3082/3082436.png", sentences: ["It's a computer.", "Computers are smart.", "I learn with computers."] },
+                    { text: "Toy", image: "https://cdn-icons-png.flaticon.com/512/3082/3082437.png", sentences: ["It's a toy.", "I have many toys.", "I like to play with toys."] },
+                    { text: "Doll", image: "https://cdn-icons-png.flaticon.com/512/3082/3082438.png", sentences: ["It's a doll.", "I have a doll.", "Dolls are fun."] },
+                    { text: "Block", image: "https://cdn-icons-png.flaticon.com/512/3082/3082439.png", sentences: ["It's a block.", "I play with blocks.", "I build with blocks."] },
+                    { text: "Crayon", image: "https://cdn-icons-png.flaticon.com/512/3082/3082440.png", sentences: ["It's a crayon.", "I draw with crayons.", "Crayons are colorful."] },
+                    { text: "Pencil", image: "https://cdn-icons-png.flaticon.com/512/3082/3082441.png", sentences: ["It's a pencil.", "I write with pencils.", "Pencils are useful."] },
+                    { text: "Bag", image: "https://cdn-icons-png.flaticon.com/512/3082/3082442.png", sentences: ["It's a bag.", "I have a school bag.", "Bags hold things."] }
                 ]
             }
         ];
@@ -493,9 +503,18 @@
             currentWord = word;
             currentSentenceIndex = 0;
             
-            document.getElementById('sentenceImage').src = word.image;
-            document.getElementById('sentenceText').textContent = word.sentences[0];
-            speak(word.sentences[0]);
+            const sentenceImage = document.getElementById('sentenceImage');
+            const sentenceText = document.getElementById('sentenceText');
+            
+            sentenceImage.src = word.image;
+            sentenceImage.alt = word.text;
+            sentenceText.textContent = word.sentences[0];
+            
+            try {
+                speak(word.sentences[0]);
+            } catch (e) {
+                console.error("音声再生エラー:", e);
+            }
             
             document.getElementById('sentenceScreen').style.display = 'flex';
         }
@@ -510,10 +529,14 @@
                 return;
             }
             
-            document.getElementById('sentenceText').textContent = 
-                currentWord.sentences[currentSentenceIndex];
+            const sentenceText = document.getElementById('sentenceText');
+            sentenceText.textContent = currentWord.sentences[currentSentenceIndex];
             
-            speak(currentWord.sentences[currentSentenceIndex]);
+            try {
+                speak(currentWord.sentences[currentSentenceIndex]);
+            } catch (e) {
+                console.error("音声再生エラー:", e);
+            }
         }
 
         // 文章画面を閉じる
@@ -523,30 +546,46 @@
 
         // 音声再生関数
         function speak(text) {
-            try {
-                if ('speechSynthesis' in window) {
-                    window.speechSynthesis.cancel();
-                    const utterance = new SpeechSynthesisUtterance(text);
-                    utterance.lang = 'en-US';
-                    utterance.rate = localStorage.getItem('speechSpeed') || speechSpeed;
-                    window.speechSynthesis.speak(utterance);
-                }
-            } catch (e) {
-                console.error("音声再生エラー:", e);
+            if ('speechSynthesis' in window) {
+                // 現在再生中の音声があればキャンセル
+                window.speechSynthesis.cancel();
+                
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'en-US';
+                utterance.rate = parseFloat(localStorage.getItem('speechSpeed')) || speechSpeed;
+                
+                // エラーハンドリング
+                utterance.onerror = function(event) {
+                    console.error('音声再生エラー:', event);
+                };
+                
+                window.speechSynthesis.speak(utterance);
+            } else {
+                console.warn('このブラウザは音声合成をサポートしていません');
             }
         }
 
         // 設定メニューの表示/非表示
-        document.getElementById('settingsBtn').addEventListener('click', function() {
+        document.getElementById('settingsBtn').addEventListener('click', function(e) {
+            e.stopPropagation();
             const menu = document.getElementById('settingsMenu');
-            menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        });
+
+        // ドキュメント全体をクリックしたら設定メニューを閉じる
+        document.addEventListener('click', function() {
+            document.getElementById('settingsMenu').style.display = 'none';
         });
 
         // 速度変更関数
         function setSpeed(speed) {
             speechSpeed = speed;
-            localStorage.setItem('speechSpeed', speed);
-            alert(`音声速度を ${speed}x に設定しました`);
+            localStorage.setItem('speechSpeed', speed.toString());
+            document.getElementById('settingsMenu').style.display = 'none';
+            
+            // 通知メッセージ
+            const message = `音声速度を ${speed}x に設定しました`;
+            alert(message);
         }
 
         // 初期化
@@ -556,8 +595,15 @@
                 speechSpeed = parseFloat(savedSpeed);
             }
             
+            // 設定メニューを非表示に
+            document.getElementById('settingsMenu').style.display = 'none';
+            
             initCategories();
-            document.getElementById('loading').style.display = 'none';
+            
+            // ローディング画面を非表示に
+            setTimeout(function() {
+                document.getElementById('loading').style.display = 'none';
+            }, 500);
         });
     </script>
 </body>
